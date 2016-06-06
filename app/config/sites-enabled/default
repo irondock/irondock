@@ -1,0 +1,15 @@
+server {
+  # Workaround for VirtualBox bug that causes non-updating files
+  sendfile off;
+
+  # Path for static files
+  root /srv/sites/docker.me/public;
+
+  # Specify a charset
+  charset utf-8;
+
+  # Custom 404 page
+  error_page 404 /404.html;
+
+  include h5bp/basic.conf;
+}
