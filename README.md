@@ -8,23 +8,35 @@ Containerize application servers with docker containers and use an Nginx server 
 
 ## How to do it?
 
+#### Vagrant VM
+
+Start the VM if not started already:
+```
+vagrant up
+```
+
+Wait few moments for the server to boot up. Then SSH into the VM:
+```
+vagrant ssh
+```
+
 #### Create Network
 
-First create a bridge network so that the Nginx server container can communicate with the application containers:
+Create a bridge network so that the Nginx server container can communicate with the application containers:
 ```
 docker network create --driver=bridge --subnet=172.68.0.0/16 --gateway=172.68.0.254 br0
 ```
 
-#### Run Nginx
+#### Run RPS
 
-Build the Nginx image:
+Build the RPS image:
 ```
-docker build -t dockerize_nginx nginx
+docker build -t rps rps
 ```
 
 And create a container from that image:
 ```
-docker run --name=dockerize_nginx_1 --publish 80:80 --publish 443:443 --net=br0 --ip=172.68.0.253 dockerize_nginx
+docker run --name=rps_1 --publish=80:80 --publish=443:443 --net=br0 --ip=172.68.0.253 --volume=$(pwd)/rps/admin:/srv/sites/admin --volume=/var/run/docker.sock:/var/run/docker.sock rps
 ```
 
 #### Run App Server

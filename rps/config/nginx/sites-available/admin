@@ -1,0 +1,52 @@
+# www to non-www redirect -- duplicate content is BAD:
+# https://github.com/h5bp/html5-boilerplate/blob/5370479476dceae7cc3ea105946536d6bc0ee468/.htaccess#L362
+# Choose between www and non-www, listen on the *wrong* one and redirect to
+# the right one -- http://wiki.nginx.org/Pitfalls#Server_Name
+server {
+  # don't forget to tell on which port this server listens
+  listen [::]:80;
+  listen 80;
+
+  # listen on the www host
+  server_name www.admin.me;
+
+  # and redirect to the non-www host (declared below)
+  return 301 $scheme://admin.me$request_uri;
+}
+
+server {
+  # listen [::]:80 accept_filter=httpready; # for FreeBSD
+  # listen 80 accept_filter=httpready; # for FreeBSD
+  # listen [::]:80 deferred; # for Linux
+  # listen 80 deferred; # for Linux
+  listen [::]:80;
+  listen 80;
+
+  # The host name to respond to
+  server_name admin.me;
+
+  root /srv/sites/admin/public;
+  index index.php index.html index.htm;
+
+  location / {
+    try_files $uri $uri/ /index.php?$query_string;
+  }
+
+  # Specify a charset
+  charset utf-8;
+
+  # Custom 404 and 50x page
+  error_page 404 /404.html;
+  error_page 500 502 503 504 /50x.html;
+  location = /50x.html {
+    root /usr/share/nginx/html;
+  }
+
+  location ~ \.php$ {
+    try_files $uri =404;
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
+    fastcgi_index index.php;
+    include fastcgi_params;
+  }
+}
