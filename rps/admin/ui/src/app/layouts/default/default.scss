@@ -1,0 +1,11 @@
+.sidebar {
+  .navigation li a > i {
+    width: 16px;
+    &.icon-users4 {
+      font-size: 15px;
+    }
+    &.icon-price-tags {
+      font-size: 15px;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "irondock",
+  "dependencies": {
+    "angular": "~1.5.5",
+    "angular-touch": "~1.5.5",
+    "angular-ui-router": "^0.3.0",
+    "jquery": "^2.2.3"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.5.5"
+  }
+}

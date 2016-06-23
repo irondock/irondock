@@ -5,12 +5,26 @@ MAINTAINER Mohammad Islam
 CMD ["/sbin/my_init"]
 
 # Install Nginx and PHP
-RUN apt-get update
-RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y nginx php5-fpm php5-cli
+RUN apt-get update && \
+    apt-get -y install nginx php5-fpm
+
+# Install cURL >= 7.40 (required to communicate with Docker API)
+RUN apt-get -y purge --auto-remove curl libcurl3 && \
+    apt-get -y install wget build-essential && \
+    wget https://curl.haxx.se/download/curl-7.49.1.tar.gz && \
+    tar -xzf curl-7.49.1.tar.gz && \
+    rm curl-7.49.1.tar.gz && cd curl-7.49.1 && ./configure --prefix=/usr/local && \
+    make && make install && \
+    cd .. && rm -rf curl-7.49.1 && \
+    ln -sf /usr/local/lib/libcurl.so.4 /usr/lib/libcurl.so.4
+
+# Give PHP access to Docker socket
+RUN usermod -a -G users www-data
 
 # Configure PHP
 RUN sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php5/fpm/php.ini
-RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php5/fpm/php-fpm.conf
+RUN sed -i "s/expose_php\s*=\s*On/expose_php = Off/ig" /etc/php5/fpm/php.ini
+RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/ig" /etc/php5/fpm/php-fpm.conf
 
 # Configure Nginx
 RUN rm -rf /etc/nginx/sites-available /etc/nginx/sites-enabled

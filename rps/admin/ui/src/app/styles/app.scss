@@ -1,0 +1,23 @@
+/**
+ * Do not remove the comments bellow. It is the marker used by wiredep
+ * to inject sass dependencies that are defined in the bower.json file.
+ */
+// bower:scss
+// endbower
+
+/**
+ * Import generic styles here from `styles` directory, i.e. base styles, icons,
+ * typography, that are not specific to individual page templates or directives.
+ */
+@import
+  'base',
+  'overrides',
+  'helpers';
+
+/**
+ * Do not remove the comments bellow. It is the marker used by gulp-inject
+ * to inject sass files from outside `styles` directory, that are specific to
+ * individual page templates or directives.
+ */
+// inject:scss
+// endinject

@@ -45,7 +45,7 @@ Vagrant.configure("2") do |config|
   #
   config.vm.provider "virtualbox" do |vb|
     # Customize the name that appears in the VirtualBox GUI
-    vb.name = "dockerize"
+    vb.name = "irondock"
 
     # Customize the amount of memory on the VM
     vb.memory = "1024"

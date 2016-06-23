@@ -1,0 +1,96 @@
+<!-- Main navbar -->
+<div class="navbar navbar-default navbar-fixed-top header-highlight">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="/"><img src="img/logo.png" alt=""></a>
+
+    <ul class="nav navbar-nav visible-xs-block">
+      <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+      <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+    </ul>
+  </div>
+
+  <div class="navbar-collapse collapse" id="navbar-mobile">
+    <ul class="nav navbar-nav">
+      <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+
+      <li class="dropdown dropdown-user">
+        <a class="dropdown-toggle" data-toggle="dropdown">
+          <img ng-src="{{user.profile.picture}}" alt="">
+          <span>{{user.profile.given_name}}</span>
+          <i class="caret"></i>
+        </a>
+
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li><a href="#" ng-click="logout()"><i class="icon-switch2"></i> Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- /main navbar -->
+
+
+<!-- Page container -->
+<div class="page-container navbar-top">
+
+  <!-- Page content -->
+  <div class="page-content">
+
+    <!-- Main sidebar -->
+    <div class="sidebar sidebar-main sidebar-fixed">
+      <div class="sidebar-content">
+
+        <!-- User menu -->
+        <div class="sidebar-user">
+          <div class="category-content">
+            <div class="media">
+              <a href="#" class="media-left"><img ng-src="{{user.profile.picture}}" class="img-circle img-sm" alt=""></a>
+              <div class="media-body">
+                <span class="media-heading text-semibold">{{user.profile.name}}</span>
+                <div class="text-size-mini text-muted">
+                  <i class="icon-pin text-size-small"></i> &nbsp;{{user.profile.country}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /user menu -->
+
+
+        <!-- Main navigation -->
+        <div class="sidebar-category sidebar-category-visible">
+          <div class="category-content no-padding">
+            <ul class="navigation navigation-main navigation-accordion">
+              <li data-for-states="dashboard"><a ui-sref="dashboard"><i class="icon-grid"></i><span>Dashboard</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- /main navigation -->
+
+      </div>
+    </div>
+    <!-- /main sidebar -->
+
+
+    <!-- Main content -->
+    <div class="content-wrapper">
+
+      <!-- Content area -->
+      <div class="content">
+
+        <div ui-view="main"></div>
+
+      </div>
+      <!-- /content area -->
+
+    </div>
+    <!-- /main content -->
+
+  </div>
+  <!-- /page content -->
+
+</div>
+<!-- /page container -->

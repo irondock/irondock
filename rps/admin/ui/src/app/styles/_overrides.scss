@@ -1,0 +1,16 @@
+/**
+ * Overrides for default styles in the theme
+ */
+
+.dl-horizontal dt + dd {
+  margin-top: 0;
+}
+
+@media (min-width: 769px) {
+  .dl-horizontal dt + dd {
+    margin-top: 20px;
+  }
+  .page-container {
+    height: 100%;   // make the left sidenav extend to the full height
+  }
+}
