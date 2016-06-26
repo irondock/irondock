@@ -136,7 +136,7 @@ gulp.task('appinfo', function() {
   var appName = pkg.name,
       appVersion = pkg.version;
 
-  var scriptContent = 'appInfo={name:"' + appName + '",version:"' + appVersion + '"};';
+  var scriptContent = 'appInfo={name:"' + appName + '",version:"' + appVersion + '",environment:"' + getenv() + '"};';
   mkdirp.sync(tmpJsDir);
   fs.writeFileSync(appInfoFile, scriptContent);
 });

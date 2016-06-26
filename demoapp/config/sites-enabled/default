@@ -3,7 +3,7 @@ server {
   sendfile off;
 
   # Path for static files
-  root /srv/sites/docker.me/public;
+  root /srv/sites/demo.app/public;
 
   # Specify a charset
   charset utf-8;

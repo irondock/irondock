@@ -1,5 +1,4 @@
 <?php
-// Routes
 
 $app->any('/[{path:.*}]', function ($req, $res, $args)
 {

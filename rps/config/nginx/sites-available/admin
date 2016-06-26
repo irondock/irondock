@@ -9,7 +9,7 @@ server {
     try_files $1 $1/ @php;
     index index.php;
     include h5bp/basic.conf;
-}
+  }
 
   location / {
     root /srv/sites/admin/ui/dist;

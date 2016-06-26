@@ -179,7 +179,7 @@
         <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z116"></relationship>
     </object>
     <object type="LMREQUEST" id="z116">
-        <attribute name="body" type="string">[{"data":{"json":"{\\"Image\\":\\"irondock\\\\\\/demoapp\\",\\"HostConfig\\":{\\"NetworkMode\\":\\"br0\\",\\"Binds\\":[\\"\\\\\\/Users\\\\\\/mislam\\\\\\/Projects\\\\\\/irondock\\\\\\/demoapp\\\\\\/src:\\\\\\/srv\\\\\\/sites\\\\\\/docker.me\\\\\\/public\\"]},\\"NetworkSettings\\":{\\"Networks\\":{\\"br0\\":{\\"IPAddress\\":\\"172.68.0.1\\"}}}}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{\\"Image\\":\\"irondock\\\\\\/demoapp\\",\\"HostConfig\\":{\\"NetworkMode\\":\\"br0\\",\\"Binds\\":[\\"\\\\\\/Users\\\\\\/mislam\\\\\\/Projects\\\\\\/irondock\\\\\\/demoapp\\\\\\/src:\\\\\\/srv\\\\\\/sites\\\\\\/demo.app\\\\\\/public\\"]},\\"NetworkSettings\\":{\\"Networks\\":{\\"br0\\":{\\"IPAddress\\":\\"172.68.0.1\\"}}}}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
         <attribute name="uuid" type="string">45CE741D-2441-4D34-AD1E-C85B4EEAF974</attribute>
         <attribute name="url" type="string">http://irondock.local/api/containers/create?name=demoapp</attribute>
         <attribute name="storecookies" type="bool">1</attribute>

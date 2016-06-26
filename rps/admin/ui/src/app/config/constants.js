@@ -10,6 +10,7 @@
   angular
     .module('app')
     .constant('$appInfo', window.appInfo)
+    .constant('moment', window.moment)
     .constant('bootbox', window.bootbox)
     .constant('sweetAlert', window.sweetAlert)
     .constant('growl', window.jQuery.jGrowl);

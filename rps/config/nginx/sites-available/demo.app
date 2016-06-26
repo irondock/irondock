@@ -8,10 +8,10 @@ server {
   listen 80;
 
   # listen on the www host
-  server_name www.docker.me;
+  server_name www.demo.app;
 
   # and redirect to the non-www host (declared below)
-  return 301 $scheme://docker.me$request_uri;
+  return 301 $scheme://demo.app$request_uri;
 }
 
 upstream app_servers {
@@ -27,7 +27,7 @@ server {
   listen 80;
 
   # The host name to respond to
-  server_name docker.me;
+  server_name demo.app;
 
   location / {
     proxy_pass         http://app_servers;
