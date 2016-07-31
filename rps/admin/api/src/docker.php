@@ -7,14 +7,13 @@ use stdClass;
 
 class Docker {
 
-  public function request($req)
+  public function request($req, $path)
   {
     $uri = $req->getUri();
     $contentType = $req->getContentType();
     $queryString = $uri->getQuery();
     $parsedBody = $req->getParsedBody();
     $method = strtoupper($req->getMethod());
-    $path = $uri->getPath();
 
     $qs = $queryString ? '?'.$queryString : '';
     if ($parsedBody && $contentType === 'application/json') {

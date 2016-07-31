@@ -1,7 +1,8 @@
 <?php
 
-$app->any('/[{path:.*}]', function ($req, $res, $args)
+$app->any('/docker/[{path:.*}]', function ($req, $res, $args)
 {
-  $response = $this->docker->request($req);
+  $path = '/'.$args['path'];
+  $response = $this->docker->request($req, $path);
   return $res->withJson($response->content, $response->statusCode);
 });

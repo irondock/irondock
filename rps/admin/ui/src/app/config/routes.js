@@ -24,16 +24,26 @@
       },
     })
 
-    .state('dashboard', {
+    .state('rps', {
       parent: 'root',
-      url: '/',
+      url: '/rps',
       views: {
         'main': {
-          templateUrl: 'pods/dashboard/dashboard.html',
-          controller: 'DashboardController'
+          templateUrl: 'pods/rps/rps.html',
+          controller: 'RpsController'
         }
-      },
-      controller: 'HomeController'
+      }
+    })
+
+    .state('containers', {
+      parent: 'root',
+      url: '/containers',
+      views: {
+        'main': {
+          templateUrl: 'pods/containers/containers.html',
+          controller: 'ContainersController'
+        }
+      }
     });
 
     // For any unmatched url, redirect to /

@@ -4,13 +4,13 @@
 
   angular
     .module('app')
-    .controller('DashboardController', controller);
+    .controller('ContainersController', controller);
 
   function controller($scope, $state, dockerApi, moment) {
 
     $scope.containers = {
       ajax: {
-        url: dockerApi.url('/containers/json'),
+        url: dockerApi.url('/containers/json?all=true'),
         dataSrc: ''
       },
       columns: {

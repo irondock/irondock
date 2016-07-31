@@ -93,7 +93,7 @@
     </object>
     <object type="LMREQUEST" id="z109">
         <attribute name="uuid" type="string">984EAFA9-695C-48D5-8226-AA60E763D97B</attribute>
-        <attribute name="url" type="string">http://irondock.local/api/containers/json?all=true</attribute>
+        <attribute name="url" type="string">http://irondock.local/api/docker/containers/json?all=true</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
