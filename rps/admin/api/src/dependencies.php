@@ -1,5 +1,6 @@
 <?php
-require dirname(__FILE__).'/docker.php';
+require dirname(__FILE__).'/controllers/docker.php';
+require dirname(__FILE__).'/controllers/rps.php';
 
 // DIC configuration
 
@@ -23,5 +24,11 @@ $container['logger'] = function ($c) {
 // docker
 $container['docker'] = function ($c) {
     $settings = $c->get('settings')['docker'];
-    return new Docker\Docker();
+    return new controllers\Docker();
+};
+
+// rps
+$container['rps'] = function ($c) {
+    $settings = $c->get('settings')['rps'];
+    return new controllers\RPS();
 };

@@ -18,5 +18,10 @@ return [
         'docker' => [
 
         ],
+
+        // RPS settings
+        'rps' => [
+
+        ],
     ],
 ];
